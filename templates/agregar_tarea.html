@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Agregar Tarea</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <h1>Agregar Nueva Tarea</h1>
+    <form action="/agregar" method="POST">
+        <label for="tarea">Tarea:</label>
+        <input type="text" id="tarea" name="tarea" required>
+        <button type="submit">Agregar</button>
+    </form>
+    <a href="{{ url_for('index') }}">Volver a la Lista de Tareas</a>
+</body>
+</html>

@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lista de Tareas</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+</head>
+<body>
+    <h1>Lista de Tareas</h1>
+    <a href="{{ url_for('agregar_tarea') }}">Agregar Tarea</a>
+    <ul>
+        {% for tarea in tareas %}
+            <li>
+                <span class="{% if tarea.completa %}completa{% endif %}">{{ tarea.tarea }}</span>
+                <a href="{{ url_for('completar_tarea', id=loop.index0) }}">Marcar como Completa</a>
+                <a href="{{ url_for('eliminar_tarea', id=loop.index0) }}">Eliminar</a>
+            </li>
+        {% endfor %}
+    </ul>
+</body>
+</html>
